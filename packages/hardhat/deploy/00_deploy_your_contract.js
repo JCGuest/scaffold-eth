@@ -12,6 +12,15 @@ const localChainId = "31337";
 //     }, ms)
 //   );
 
+// constructor(address[] memory _owners, uint256 _numConfirmationsRequired) {
+//   require(_owners.length > 0, "owners required");
+//   require(
+//       _numConfirmationsRequired > 0 &&
+//           _numConfirmationsRequired <= _owners.length,
+//       "invalid number of required confirmations"
+//   );
+
+
 module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
@@ -20,7 +29,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   await deploy("YourContract", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
-    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    args: [ [], 2 ],
     log: true,
     waitConfirmations: 5,
   });
